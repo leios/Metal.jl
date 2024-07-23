@@ -14,6 +14,8 @@ using ExprTools: splitdef, combinedef
 using Artifacts
 using ObjectiveC, .CoreFoundation, .Foundation, .Dispatch, .OS
 
+import KernelAbstractions as KA
+
 # core library
 include("../lib/mtl/MTL.jl")
 @reexport using .MTL
@@ -61,7 +63,7 @@ include("random.jl")
 
 # KernelAbstractions
 include("MetalKernels.jl")
-import .MetalKernels: MetalBackend
+import .MetalKernels: MetalBackend, KA.launch_config
 export MetalBackend
 
 include("gpuarrays.jl")
